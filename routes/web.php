@@ -41,4 +41,16 @@ Route::get('/allbooks/{id}','BookController@borrow');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('/borrow/{id}','BookController@borrow')->name('borrow');
+//Route::get('/rudisha/{id}','BookController@rudisha')->name('rudisha');
+
+Route::get('/students',function (){
+   return view('admin.pages.students');
+});
+
+Route::post('storestudent','StudentController@store');
+
+Route::post('studentandbook','StudentBookController@store');
+Route::post('studentandbook2','StudentBookController@store2');
+Route::get('viewstudentsandbooks','StudentBookController@viewborrowed');

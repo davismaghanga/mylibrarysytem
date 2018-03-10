@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,7 +23,10 @@ class BookController extends Controller
     public function viewall()
     {
         $books = Book::all();
-        return view('admin.pages.allbooks', compact('books'));
+        $bbooks=Book::where('borrowed',0)->select(['id','book_name'])->get();
+        $students = Student::all();
+        $rbooks=Book::where('borrowed',1)->select(['id','book_name'])->get();
+        return view('admin.pages.allbooks', compact('books','bbooks','rbooks','students'));
 
     }
 
@@ -44,15 +48,6 @@ class BookController extends Controller
         return redirect(url('/allbooks'))->with('status','Details have been successfully updated');
         
     }
-
-    public function borrow($id)
-    {
-        $book= Book::whereId($id)->first();
-        $book->borrowed = 1;
-        $book->save();
-        return back()->with('status', $book->book_name.' has been borrowed.');
-    }
-
 
 
 }

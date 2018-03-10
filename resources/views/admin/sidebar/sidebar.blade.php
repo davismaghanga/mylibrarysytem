@@ -4,6 +4,8 @@
         <li class="active"><a href="#"><i class="icon icon-home"></i> <span>DASHBOARD</span></a> </li>
         <li> <a href="{{url('/addpage')}}"><i class="icon icon-signal"></i> <span>ADD BOOK</span></a> </li>
         <li> <a href="{{url('/allbooks')}}"><i class="icon icon-inbox"></i> <span>ALL THE BOOKS</span></a> </li>
+        <li> <a href="{{url('/students')}}"><i class="icon icon-inbox"></i> <span>ADD STUDENT TO SYSTEM</span></a> </li>
+        <li> <a href="{{url('/viewstudentsandbooks')}}"><i class="icon icon-inbox"></i> <span>BORROWED BOOKS AND BORROWERS</span></a> </li>
 
     </ul>
 </div>
